@@ -1,0 +1,37 @@
+#find longest wrod in a  string
+def find_longest(string):
+ 
+  length=len(string)
+  si=ei=0
+  min_length=length
+  min_start_index=max_length=max_start_index=0
+
+  while ei<=length:
+    if(ei<length) and (string[ei]!=" "):
+      ei+=1 
+    else:
+      current_length= ei-si #8-0
+     
+      if current_length<min_length:
+        min_length=current_length
+        min_start_index=si
+      
+      if current_length>max_length:
+        max_length=current_length
+        max_start_index=si
+      ei+=1
+      si=ei
+    
+  minword=string[min_start_index:
+            min_start_index+min_length]
+  #Min snips out the shortest word based on her starting point and its length. In this case, starting from the 4th mark (excluding the space before "do") and cutting 2 marks (for "do").
+  max_word=string[max_start_index:
+               max_start_index+max_length]
+  
+  print("min word",minword)
+  print("max_word",max_word)
+
+a="less do it mannn!!!"
+print(find_longest(a))
+
+
